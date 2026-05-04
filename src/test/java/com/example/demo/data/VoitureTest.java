@@ -7,9 +7,11 @@ class VoitureTest {
 
     @Test
     void testCreerVoiture() {
-        Voiture voiture = new Voiture("Toyota", 100);
+        // On utilise un int (123) pour le 2ème paramètre comme vu précédemment
+        Voiture voiture = new Voiture("Toyota", 123);
 
-        assertNotNull(voiture, "L'objet voiture ne doit pas être nul");
-        assertEquals("Toyota", voiture.getMarque(), "La marque doit être Toyota");
+        assertNotNull(voiture);
+        assertEquals("Toyota", voiture.getMarque());
     }
-
+    
+} 
