@@ -1,17 +1,17 @@
 package com.example.demo.data;
 
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-@SpringBootTest
-public class VoitureTest {
+class VoitureTest {
 
     @Test
-    void creerVoiture(){
-        assertEquals(1,1);
-    }
+    void testCreerVoiture() {
+        // On utilise un int (123) pour le 2ème paramètre comme vu précédemment
+        Voiture voiture = new Voiture("Toyota", 123);
 
-}
+        assertNotNull(voiture);
+        assertEquals("Toyota", voiture.getMarque());
+    }
+    
+} 
