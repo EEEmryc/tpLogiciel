@@ -148,16 +148,25 @@ Cette interface utilise une classe Echantillon : https://github.com/charroux/tes
 
 Son implantation et donnée : https://github.com/charroux/testsLogiciel/blob/main/src/main/java/com/example/demo/service/StatistiqueImpl.java
 
-Votre tâche consiste à écrire la classe de test en utilisant le framework Mockito : https://github.com/charroux/testsLogiciel/blob/main/src/test/java/com/example/demo/service/StatistiqueTests.java
+Votre tâche consiste à écrire la classe de test en utilisant le framework JUnit.
 
-# TD 2 - MockMvc
+# TD 3 - MockMvc
 
 MockVvc est un framework de test qui permet de tester un application Web programmé en Java version Spring. 
 Essentiellement, ce framework envoi des requêtes HTTP à un programe Web Java et vérifier que les réponses sont celles attendues.
 
-Comment faire des requêtes : https://docs.spring.io/spring-framework/reference/6.0/testing/spring-mvc-test-framework/server-performing-requests.html
+https://docs.spring.io/spring-framework/reference/testing/mockmvc.html
 
-Comment vérifier les résultats des requêtes : https://docs.spring.io/spring-framework/reference/6.0/testing/spring-mvc-test-framework/server-defining-expectations.html
+
+Générer des requêtes HTTP :
+
+https://docs.spring.io/spring-framework/reference/testing/mockmvc/hamcrest/requests.html
+
+
+Tester les réponses des requêtes : 
+
+https://docs.spring.io/spring-framework/reference/testing/mockmvc/hamcrest/expectations.html
+
 
 # TP 3 - MockMvc
 
