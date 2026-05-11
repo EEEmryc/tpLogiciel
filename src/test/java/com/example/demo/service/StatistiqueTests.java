@@ -21,7 +21,7 @@ class StatistiqueTests {
     private StatistiqueImpl statistiqueService;
 
     @Test
-    void testCalculNombreVoitures() {
+    void testCalculer() {
         List<Voiture> faussesVoitures = List.of(
             new Voiture("Tesla", 123),
             new Voiture("BMW", 456)
@@ -29,9 +29,9 @@ class StatistiqueTests {
         
         when(echantillonMock.getVoitures()).thenReturn(faussesVoitures);
 
-        int nb = statistiqueService.getNombreVoitures();
+        int result = statistiqueService.calculer();
 
-        assertEquals(2, nb);
+        assertEquals(2, result);
         verify(echantillonMock, times(1)).getVoitures();
     }
 }
