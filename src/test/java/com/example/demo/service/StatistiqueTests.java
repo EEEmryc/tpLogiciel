@@ -1,17 +1,32 @@
 package com.example.demo.service;
 
-import com.example.demo.data.Voiture;
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
+import com.example.demo.data.Voiture;
 
-@SpringBootTest
-public class StatistiqueTests {
+@ExtendWith(MockitoExtension.class)
+class StatistiqueTests {
 
-    @MockBean
-    StatistiqueImpl statistiqueImpl;
+    @InjectMocks
+    private StatistiqueImpl statistiqueService;
 
+    @Test
+    void testPrixMoyen() {
+        Voiture v1 = new Voiture("Tesla", 100);
+        Voiture v2 = new Voiture("BMW", 200);
+        
+        statistiqueService.ajouter(v1);
+        statistiqueService.ajouter(v2);
+
+        Echantillon result = statistiqueService.prixMoyen();
+
+        assertNotNull(result);
+        assertEquals(2, result.getNombreDeVoitures());
+        assertEquals(150, result.getPrixMoyen());
+    }
 }
