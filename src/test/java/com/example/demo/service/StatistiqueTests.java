@@ -6,32 +6,27 @@ import static org.mockito.Mockito.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import java.util.List;
 import com.example.demo.data.Voiture;
 
 @ExtendWith(MockitoExtension.class)
 class StatistiqueTests {
 
-    @Mock
-    private Echantillon echantillonMock;
-
     @InjectMocks
     private StatistiqueImpl statistiqueService;
 
     @Test
-    void testCalculer() {
-        List<Voiture> faussesVoitures = List.of(
-            new Voiture("Tesla", 123),
-            new Voiture("BMW", 456)
-        );
+    void testPrixMoyen() {
+        Voiture v1 = new Voiture("Tesla", 100);
+        Voiture v2 = new Voiture("BMW", 200);
         
-        when(echantillonMock.getVoitures()).thenReturn(faussesVoitures);
+        statistiqueService.ajouter(v1);
+        statistiqueService.ajouter(v2);
 
-        int result = statistiqueService.calculer();
+        Echantillon result = statistiqueService.prixMoyen();
 
-        assertEquals(2, result);
-        verify(echantillonMock, times(1)).getVoitures();
+        assertNotNull(result);
+        assertEquals(2, result.getNombreDeVoitures());
+        assertEquals(150, result.getPrixMoyen());
     }
 }
